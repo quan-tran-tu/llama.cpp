@@ -18,14 +18,17 @@
 - Update:
     - `llama-arch.h`, `llama-arch.cpp`
     - `llama-model.h`, `llama-model.cpp`
+- Need to convert qwen3-tts and qwen3-tokenizer huggingface files to gguf too, which needs to udpate `convert_hf_to_gguf.py` too
 
 ## Plan
+### 0. Analyse `convert_hf_to_gguf.py`
 
 ### 1. Analyse existing usage
 - Map model configurations (from huggingface files) with implementation in `src/models` for `qwen3`, `wav-tokenizer` and `oute-tts`
 - Analyse the existing inference file (`tools/tts/tts.cpp`), figure out high-level flow, inputs and outputs
 
 ### 2. Implement
-#### a) `examples/tts/CMakeLists.txt`, `examples/tts/README.txt` and update `examples/CMakeLists.txt`
-#### b) `models/qwen3-tokenizer.cpp`, `examples/tts/tts.cpp` to test the tokenizer and update files in `src/`
-#### c) `models/qwen3-tts.cpp`, update `examples/tts/tts.cpp` to integrate with the tokenizer
+#### a) Add qwen3-tts and qwen3-tokenizer related classes support to `convert_hf_to_gguf.py`
+#### b) `examples/tts/CMakeLists.txt`, `examples/tts/README.txt` and update `examples/CMakeLists.txt`
+#### c) `models/qwen3-tokenizer.cpp`, `examples/tts/tts.cpp` to test the tokenizer and update files in `src/`
+#### d) `models/qwen3-tts.cpp`, update `examples/tts/tts.cpp` to integrate with the tokenizer
